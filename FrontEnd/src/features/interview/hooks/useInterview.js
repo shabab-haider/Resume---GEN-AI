@@ -5,7 +5,7 @@ import {
   getAllReports,
   getInterviewReportById,
 } from "../services/interview.api";
-import { InterviewContextData } from "../interview.context";
+import { InterviewContextData } from "../Interview.context";
 import { useParams } from "react-router";
 
 export function useInterview() {
