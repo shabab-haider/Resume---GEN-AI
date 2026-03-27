@@ -5,7 +5,7 @@ const cors = require("cors");
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: "https://resume-gen-ai-kocz.vercel.app", credentials: true }));
 
 /** Require all routes here */
 const authRoutes = require("../src/routes/auth.routes");
