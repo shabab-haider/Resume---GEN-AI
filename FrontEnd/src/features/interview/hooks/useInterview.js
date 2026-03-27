@@ -75,9 +75,9 @@ export function useInterview() {
     setLoading(true);
 
     try {
-      console.log("extracting blob...");
+      
       const blob = await downloadReport(id);
-      console.log("blob extracted: ", blob);
+     
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;

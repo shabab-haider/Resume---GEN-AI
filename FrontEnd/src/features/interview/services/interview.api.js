@@ -46,11 +46,11 @@ export const getAllReports = async () => {
 
 export const downloadReport = async (id) => {
   try {
-    console.log("dowload api called");
+    
     const response = await api.get(`/generateResumePdf/${id}`, {
       responseType: "blob",
     });
-    console.log("api response gnerated: ", response);
+    
     return response.data;
   } catch (err) {
     console.log("error: ", err.message);

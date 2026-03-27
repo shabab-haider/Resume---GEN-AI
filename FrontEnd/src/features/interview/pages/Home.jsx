@@ -15,7 +15,6 @@ const Home = () => {
   const resumeInputRef = useRef();
 
   const handleGenrateContent = async () => {
-    console.log("clicked");
     const resumeFile = resumeInputRef.current.files[0];
     const data = await genrateReport({
       resumeFile,
