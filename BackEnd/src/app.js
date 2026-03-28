@@ -7,8 +7,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 const allowedOrigins = [
-    "http://localhost:5173",
-    // Correct origin without the trailing slash
+  "http://localhost:5173",
+  // Correct origin without the trailing slash
   // ... other allowed origins
 ];
 
@@ -31,6 +31,10 @@ app.use(cors(corsOptions));
 /** Require all routes here */
 const authRoutes = require("../src/routes/auth.routes");
 const interviewRoutes = require("../src/routes/interview.routes");
+
+app.get("/", (req, res) => {
+  res.send("server si runing...");
+});
 
 /** Use all routes here */
 app.use("/api/auth", authRoutes);
