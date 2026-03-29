@@ -29,8 +29,7 @@ const allowedOrigins = [
   // Correct origin without the trailing slash
   "http://localhost:5173",
   // ... other allowed origins
-  "https://resume-gen-ai-ebon.vercel.app",
-
+  "https://resume-gen-ai-sp07.onrender.com",
 ];
 
 const corsOptions = {
