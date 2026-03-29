@@ -5,6 +5,8 @@ const api = axios.create({
   withCredentials: true,
 });
 
+const token = localStorage.getItem("token");
+
 export async function register({ username, email, password }) {
   try {
     const response = await api.post("/register", {
@@ -42,7 +44,9 @@ export async function Logout() {
 
 export async function GetMe() {
   try {
-    const response = await api.get("/get-me");
+    const response = await api.get("/get-me", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error) {
     console.log(error);
