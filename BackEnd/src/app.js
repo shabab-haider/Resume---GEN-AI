@@ -11,6 +11,7 @@ const allowedOrigins = [
   "http://localhost:5173",
   // ... other allowed origins
   "https://resume-gen-ai-ebon.vercel.app",
+
 ];
 
 const corsOptions = {
