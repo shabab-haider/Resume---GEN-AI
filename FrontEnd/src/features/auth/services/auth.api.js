@@ -5,7 +5,15 @@ const api = axios.create({
   withCredentials: true,
 });
 
-const token = localStorage.getItem("token");
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+
 
 export async function register({ username, email, password }) {
   try {
@@ -44,9 +52,7 @@ export async function Logout() {
 
 export async function GetMe() {
   try {
-    const response = await api.get("/get-me", {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const response = await api.get("/get-me");
     return response.data;
   } catch (error) {
     console.log(error);
