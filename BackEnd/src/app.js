@@ -14,6 +14,7 @@ app.use((req, res, next) => {
       httpOnly: true,
       secure: isProduction,
       sameSite: isProduction ? "none" : "lax",
+      partitioned: true,
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
   };
