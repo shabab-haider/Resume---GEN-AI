@@ -7,9 +7,10 @@ app.use(express.json());
 app.use(cookieParser());
 
 const allowedOrigins = [
-  "http://localhost:5173",
   // Correct origin without the trailing slash
+  "http://localhost:5173",
   // ... other allowed origins
+  "https://resume-gen-ai-ebon.vercel.app",
 ];
 
 const corsOptions = {
@@ -29,8 +30,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 /** Require all routes here */
-const authRoutes = require("../src/routes/auth.routes");
-const interviewRoutes = require("../src/routes/interview.routes");
+const authRoutes = require("./routes/auth.routes");
+const interviewRoutes = require("./routes/interview.routes");
 
 app.get("/", (req, res) => {
   res.send("server si runing...");
