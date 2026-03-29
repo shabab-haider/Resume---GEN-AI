@@ -6,6 +6,25 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cookieParser());
 
+app.use((req, res, next) => {
+  const isProduction = process.env.NODE_ENV === "production";
+
+  res.setAuthCookie = (token) => {
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: isProduction,
+      sameSite: isProduction ? "none" : "lax",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
+  };
+  next();
+});
+
+// Render ke liye ye line bhi zaroori hai (Middleware ke bahar)
+if (process.env.NODE_ENV === "production") {
+  app.set("trust proxy", 1);
+}
+
 const allowedOrigins = [
   // Correct origin without the trailing slash
   "http://localhost:5173",
